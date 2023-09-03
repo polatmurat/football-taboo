@@ -3,6 +3,7 @@ import Home from "../pages/dashboard/Home";
 import Taboo from "../pages/dashboard/Taboo";
 import Private from "./Private";
 import RegTeam from "../components/dashboard/RegTeam";
+import Trial from "../components/dashboard/Trial";
 
 const Routing = () => {
   return (
@@ -11,6 +12,7 @@ const Routing = () => {
         <Route path="/" element={<Home />} />
         <Route path="reg-team" element={<RegTeam />} />
         <Route path="/taboo" element={<Private><Taboo /></Private>} />
+        <Route path="/trial" element={<Private><Trial /></Private>} />
       </Routes>
     </BrowserRouter>
   );

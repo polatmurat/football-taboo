@@ -4,6 +4,20 @@ const Card = () => {
   const team1Name = localStorage.getItem("team1Name");
   const team2Name = localStorage.getItem("team2Name");
 
+  const [score, setScore] = useState(0);
+
+  const [teamName, setTeamName] = useState(`${team1Name}`);
+
+  const [currentWord, setCurrentWord] = useState("Arda Turan"); // Örnek aranan kelime
+
+  const decreaseScore = () => {
+    setScore(score - 1);
+  };
+
+  const increaseScore = () => {
+    setScore(score + 1);
+  };
+
   const [tabooWords, setTabooWords] = useState([
     "Galatasaray",
     "İmparator",
@@ -16,7 +30,7 @@ const Card = () => {
     <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
       <div className="flex">
         <div className="p-4 rounded-lg shadow-md bg-white mb-8 w-72 text-center mt-14 mr-14">
-          <h1 className="text-2xl font-bold">{team1Name}</h1>
+          <h1 className="text-2xl font-bold">{teamName}</h1>
           <p className="mt-2 text-gray-600">Pas: 3 Score: 7</p>
         </div>
         <div className="p-4 rounded-lg shadow-md bg-white mb-8 w-72 text-center mt-14">
@@ -25,7 +39,7 @@ const Card = () => {
         </div>
       </div>
       <div className="p-4 rounded-lg shadow-md bg-white mb-8 w-[40%] text-center">
-        <h2 className="text-xl font-bold">Fatih Terim</h2>
+        <h2 className="text-xl font-bold">{currentWord}</h2>
         <ul className="mt-2 space-y-2">
           {tabooWords.map((word, index) => (
             <li
