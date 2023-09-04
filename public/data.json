@@ -2,156 +2,133 @@
     {
         "id": 1,
         "qName": "Question 1",
-        "qContent": "Question text content description",
-        "qChoices": [
-            {
-                "a": "a choice",
-                "b": "b choice",
-                "c": "c choice"
-            }
-        ],
-        "qAnswer": "a"
+        "qContent": "Question text content description destina!",
+        "qTaboo": [
+            "taboo word1",
+            "taboo word2",
+            "taboo word3",
+            "taboo word4"
+        ]
     },
     {
         "id": 2,
         "qName": "Question 2",
         "qContent": "Question text content description",
-        "qChoices": [
-            {
-                "a": "a choice",
-                "b": "b choice",
-                "c": "c choice"
-            }
-        ],
-        "qAnswer": "a"
+        "qTaboo": [
+            "taboo word1",
+            "taboo word2",
+            "taboo word3",
+            "taboo word4"
+        ]
     },
     {
         "id": 3,
         "qName": "Question 3",
         "qContent": "Question text content description",
-        "qChoices": [
-            {
-                "a": "a choice",
-                "b": "b choice",
-                "c": "c choice"
-            }
-        ],
-        "qAnswer": "a"
+        "qTaboo": [
+            "taboo word1",
+            "taboo word2",
+            "taboo word3",
+            "taboo word4"
+        ]
     },
     {
         "id": 4,
         "qName": "Question 4",
         "qContent": "Question text content description",
-        "qChoices": [
-            {
-                "a": "a choice",
-                "b": "b choice",
-                "c": "c choice"
-            }
-        ],
-        "qAnswer": "a"
+        "qTaboo": [
+            "taboo word1",
+            "taboo word2",
+            "taboo word3",
+            "taboo word4"
+        ]
     },
     {
         "id": 5,
         "qName": "Question 5",
         "qContent": "Question text content description",
-        "qChoices": [
-            {
-                "a": "a choice",
-                "b": "b choice",
-                "c": "c choice"
-            }
-        ],
-        "qAnswer": "a"
+        "qTaboo": [
+            "taboo word1",
+            "taboo word2",
+            "taboo word3",
+            "taboo word4"
+        ]
     },
     {
         "id": 6,
         "qName": "Question 6",
         "qContent": "Question text content description",
-        "qChoices": [
-            {
-                "a": "a choice",
-                "b": "b choice",
-                "c": "c choice"
-            }
-        ],
-        "qAnswer": "a"
+        "qTaboo": [
+            "taboo word1",
+            "taboo word2",
+            "taboo word3",
+            "taboo word4"
+        ]
     },
     {
         "id": 7,
         "qName": "Question 7",
         "qContent": "Question text content description",
-        "qChoices": [
-            {
-                "a": "a choice",
-                "b": "b choice",
-                "c": "c choice"
-            }
-        ],
-        "qAnswer": "a"
+        "qTaboo": [
+            "taboo word1",
+            "taboo word2",
+            "taboo word3",
+            "taboo word4"
+        ]
     },
     {
         "id": 8,
         "qName": "Question 8",
         "qContent": "Question text content description",
-        "qChoices": [
-            {
-                "a": "a choice",
-                "b": "b choice",
-                "c": "c choice"
-            }
-        ],
-        "qAnswer": "a"
+        "qTaboo": [
+            "taboo word1",
+            "taboo word2",
+            "taboo word3",
+            "taboo word4"
+        ]
     },
     {
         "id": 9,
         "qName": "Question 9",
         "qContent": "Question text content description",
-        "qChoices": [
-            {
-                "a": "a choice",
-                "b": "b choice",
-                "c": "c choice"
-            }
-        ],
-        "qAnswer": "a"
+        "qTaboo": [
+            "taboo word1",
+            "taboo word2",
+            "taboo word3",
+            "taboo word4"
+        ]
     },
     {
         "id": 10,
         "qName": "Question 10",
         "qContent": "Question text content description",
-        "qChoices": [
-            {
-                "a": "a choice",
-                "b": "b choice",
-                "c": "c choice"
-            }
-        ],
-        "qAnswer": "a"
+        "qTaboo": [
+            "taboo word1",
+            "taboo word2",
+            "taboo word3",
+            "taboo word4"
+        ]
     },
     {
         "id": 11,
         "qName": "Question 11",
         "qContent": "Question text content description",
-        "qChoices": [
-            {
-                "a": "a choice",
-                "b": "b choice",
-                "c": "c choice"
-            }
-        ],
-        "qAnswer": "a"
+        "qTaboo": [
+            "taboo word1",
+            "taboo word2",
+            "taboo word3",
+            "taboo word4"
+        ]
     },
     {
         "id": 12,
         "qName": "Question 12",
         "qContent": "Question text content description",
-        "qChoices": [
-            {
-                "a": "a choice",
-                "b": "b choice",
-                "c": "c choice"
-            }
-        ],
-        "qAnswer": "a"
-    }]
+        "qTaboo": [
+            "taboo word1",
+            "taboo word2",
+            "taboo word3",
+            "taboo word4"
+        ]
+    }
+]

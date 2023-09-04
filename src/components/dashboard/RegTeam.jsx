@@ -36,7 +36,7 @@ const RegTeam = () => {
       localStorage.setItem("team1Name", team1);
       localStorage.setItem("team2Name", team2);
 
-      navigate("/taboo");
+      navigate("/trial");
     }
   };
 

@@ -1,0 +1,28 @@
+body {
+  background-color: rgba(255, 255, 255, 0.7); /* Şeffaf bir beyaz arkaplan */
+}
+
+/* Trial.css */
+
+/* Şeffaf arka planı ve butonu stilleyin */
+.blur-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px); /* Bulanıklık miktarını ayarlayabilirsiniz */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.net-buton {
+  background-color: #3498db; /* Butonun arkaplan rengini ayarlayabilirsiniz */
+  color: #fff; /* Butonun metin rengini ayarlayabilirsiniz */
+  padding: 15px 30px; /* Butonun boyutunu ayarlayabilirsiniz */
+  font-size: 18px; /* Butonun metin boyutunu ayarlayabilirsiniz */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
