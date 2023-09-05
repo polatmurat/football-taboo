@@ -4,10 +4,9 @@ import Nav from "../home/Nav";
 import "./Blur.css";
 import { useNavigate } from "react-router-dom";
 import BlurFinish from "./BlurFinish";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
 
-
-const Trial = () => {
+const TabooCart = () => {
   const [data, setData] = useState([]);
   const [time, setTime] = useState(60);
   const [questionIndex, setQuestionIndex] = useState(0);
@@ -68,10 +67,6 @@ const Trial = () => {
     }
   }
 
-  if (data.length === 0) {
-    return <Spinner />;
-  }
-
   const questions = [
     data.map(
       (question) =>
@@ -93,18 +88,20 @@ const Trial = () => {
   }
 
   Quiz.prototype.askQuestion = function () {
-    console.log(this.qIndex);
     return this.questions[0][this.qIndex];
   };
 
   const quiz = new Quiz(questions);
 
   if (data.length === 0) {
-    return <Spinner />;
+    return (
+      <div className="min-h-screen w-full flex justify-center items-center">
+        <Spinner />
+      </div>
+    );
   }
 
   const showQuestion = (inputtedQuestion) => {
-    console.log("Inputted question: ", inputtedQuestion);
     let questionText = inputtedQuestion.content;
     let tabooWords = inputtedQuestion.qTaboo;
 
@@ -186,7 +183,6 @@ const Trial = () => {
       teamName === team1Name ? setScore1(score1 + 1) : setScore2(score2 + 1);
       if (questionIndex + 1 >= questions[0].length) {
         setQuestionIndex(questions[0].length);
-        console.log("Hihiii");
       }
       setQuestionIndex(questionIndex + 1);
     }
@@ -194,7 +190,7 @@ const Trial = () => {
 
   const passBtn = () => {
     if (passCounter >= 3) {
-      toast('Pas hakkınız doldu!')
+      toast("Pas hakkınız doldu!");
     } else {
       setQuestionIndex(questionIndex + 1);
       setPassCounter(passCounter + 1);
@@ -263,4 +259,4 @@ const Trial = () => {
   );
 };
 
-export default Trial;
+export default TabooCart;

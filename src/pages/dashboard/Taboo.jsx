@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Nav from "../../components/home/Nav";
 import { FaRegCirclePlay } from "react-icons/fa6";
-import Trial from "../../components/dashboard/Trial";
+import TabooCart from "../../components/dashboard/TabooCart";
 
 const Taboo = () => {
   const team1Name = localStorage.getItem("team1Name");
@@ -38,7 +38,7 @@ const Taboo = () => {
           </div>
         </>
       ) : (
-        <Trial />
+        <TabooCart />
       )}
     </>
   );

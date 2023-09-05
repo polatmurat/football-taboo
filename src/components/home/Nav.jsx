@@ -1,4 +1,4 @@
-import { BsHandbag, BsSearch } from "react-icons/bs";
+import { BiFootball } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 const Nav = () => {
@@ -11,27 +11,11 @@ const Nav = () => {
           </Link>
           <ul className="flex items-center">
             <li className="nav__item cursor-pointer">
-              <BsSearch size={22} />
+              <BiFootball size={22} />
             </li>
-            {/* <li className="nav__item text-black">
-              <Link to="/login" className="nav__link">
-                Sign In
-              </Link>
-            </li> */}
             <li className="nav__item text-black">
-              <Link to="/user" className="nav__link">
-                Murat
-              </Link>
-            </li>{" "}
-            <li className="nav__item text-black">
-              <Link to="/login" className="nav__link">
-                Sign In
-              </Link>
-            </li>
-            <li className="nav__item relative">
-              <Link to="/cart">
-                <BsHandbag size={20} />
-                <span className="nav__circle">10</span>
+              <Link to="/reg-team" className="nav__link">
+                Register
               </Link>
             </li>
           </ul>
