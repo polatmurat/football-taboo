@@ -3,8 +3,9 @@ import Spinner from "../Spinner";
 import Nav from "../home/Nav";
 import "./Blur.css";
 import { useNavigate } from "react-router-dom";
-import BlurTeam from "./BlurTeam";
 import BlurFinish from "./BlurFinish";
+import toast, { Toaster } from 'react-hot-toast';
+
 
 const Trial = () => {
   const [data, setData] = useState([]);
@@ -17,9 +18,7 @@ const Trial = () => {
   const team2Name = localStorage.getItem("team2Name");
   const [teamName, setTeamName] = useState(`${team1Name}`);
   const [blur, setBlur] = useState(false);
-  const [disableButton, setDisableButton] = useState(false);
-  const [disablePasButton, setDisablePasButton] = useState(false);
-  const [action, setAction] = useState(0);
+  // const [disablePasButton, setDisablePasButton] = useState(false);
 
   const navigate = useNavigate();
 
@@ -59,13 +58,6 @@ const Trial = () => {
       clearInterval(countdown);
     };
   }, [time]);
-
-  // useEffect(() => {
-  //   if(questionIndex + 1 > questions[0].length) {
-  //     setBlur(true);
-  //     setDisablePasButton(true);
-  //   }
-  // }, [questionIndex])
 
   class Question {
     constructor(id, name, content, taboo) {
@@ -154,21 +146,19 @@ const Trial = () => {
           <button
             onClick={correctBtn}
             className="px-4 py-2 w-24 bg-green-500 text-white rounded"
-            disabled={disableButton}
           >
             Correct
           </button>
           <button
             onClick={passBtn}
             className="px-4 py-2 w-24 bg-yellow-500 text-white rounded"
-            disabled={disableButton && disablePasButton}
+            // disabled={disablePasButton}
           >
             Pas
           </button>
           <button
             onClick={failBtn}
             className="px-4 py-2 w-24 bg-red-500 text-white rounded"
-            disabled={disableButton}
           >
             Taboo!
           </button>
@@ -204,7 +194,7 @@ const Trial = () => {
 
   const passBtn = () => {
     if (passCounter >= 3) {
-      window.alert("Pas hakkınız doldu");
+      toast('Pas hakkınız doldu!')
     } else {
       setQuestionIndex(questionIndex + 1);
       setPassCounter(passCounter + 1);
@@ -250,16 +240,25 @@ const Trial = () => {
     setTime(60);
     setQuestionIndex(0);
     setTeamName(`${team1Name}`);
-    navigate('/');
+    navigate("/");
   };
   return (
     <>
       <Nav />
-      {!(questionIndex + 1 > questions[0].length) ? (
+      {!(questionIndex + 1 > questions[0].length) || blur ? (
         showQuestion(quiz.askQuestion())
       ) : (
-        <BlurFinish team1Name={team1Name} team2Name={team2Name} score1={score1} score2={score2} changeTeam={changeTeamButton} finish={finishTabooButton} replay={replayTabooButton} />
+        <BlurFinish
+          team1Name={team1Name}
+          team2Name={team2Name}
+          score1={score1}
+          score2={score2}
+          changeTeam={changeTeamButton}
+          finish={finishTabooButton}
+          replay={replayTabooButton}
+        />
       )}
+      <Toaster />
     </>
   );
 };
