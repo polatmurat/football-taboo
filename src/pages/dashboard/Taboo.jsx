@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Nav from "../../components/home/Nav";
 import { FaRegCirclePlay } from "react-icons/fa6";
-import Cart from "../../components/cart/Cart";
+import Trial from "../../components/dashboard/Trial";
 
 const Taboo = () => {
   const team1Name = localStorage.getItem("team1Name");
@@ -38,31 +38,8 @@ const Taboo = () => {
           </div>
         </>
       ) : (
-        <Cart />
+        <Trial />
       )}
-
-      {/*
-
-      Start Game ? 
-
-
-        Team Name
-        Pas : 3 Score : 10
-        
-        Word
-
-        Taboo Words
-
-        Correct
-        Pas
-        Taboo!
-
-        Time finished => Change Team
-
-           Team 1          Team 2
-        Total Score :    Total Score : 
-      
-      */}
     </>
   );
 };

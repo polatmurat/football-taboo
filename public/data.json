@@ -2,12 +2,16 @@
     {
         "id": 1,
         "qName": "Question 1",
-        "qContent": "Question text content description destina!",
+        "qContent": "Fatih Terim",
         "qTaboo": [
-            "taboo word1",
-            "taboo word2",
-            "taboo word3",
-            "taboo word4"
+            "İmparator",
+            "Kebapçı Selo",
+            "Mimikler",
+            "Galatasaray Efsanesi",
+            "Baba",
+            "Helikopter Jübile",
+            "Milan",
+            "Teknik direktör"
         ]
     },
     {

@@ -1,10 +1,10 @@
-const BlurBackground = ({ onClick }) => {
+const BlurTeam = ({ onClick, type }) => {
   return (
     <div className="blur-background">
       <button className="net-buton" onClick={onClick}>
-        Net Buton
+        Change Team
       </button>
     </div>
   );
 };
-export default BlurBackground;
+export default BlurTeam;

@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import Spinner from "../Spinner";
 import Nav from "../home/Nav";
 import "./Blur.css";
-import BlurBackground from "./BlurBackground";
+import { useNavigate } from "react-router-dom";
+import BlurTeam from "./BlurTeam";
+import BlurFinish from "./BlurFinish";
 
 const Trial = () => {
   const [data, setData] = useState([]);
@@ -15,6 +17,11 @@ const Trial = () => {
   const team2Name = localStorage.getItem("team2Name");
   const [teamName, setTeamName] = useState(`${team1Name}`);
   const [blur, setBlur] = useState(false);
+  const [disableButton, setDisableButton] = useState(false);
+  const [disablePasButton, setDisablePasButton] = useState(false);
+  const [action, setAction] = useState(0);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchURI = "http://localhost:5173/data.json";
@@ -53,6 +60,13 @@ const Trial = () => {
     };
   }, [time]);
 
+  // useEffect(() => {
+  //   if(questionIndex + 1 > questions[0].length) {
+  //     setBlur(true);
+  //     setDisablePasButton(true);
+  //   }
+  // }, [questionIndex])
+
   class Question {
     constructor(id, name, content, taboo) {
       this.id = id;
@@ -65,13 +79,6 @@ const Trial = () => {
   if (data.length === 0) {
     return <Spinner />;
   }
-
-  const q = new Question(
-    data[0].id,
-    data[0].qName,
-    data[0].qContent,
-    data[0].qTaboo
-  );
 
   const questions = [
     data.map(
@@ -100,37 +107,26 @@ const Trial = () => {
 
   const quiz = new Quiz(questions);
 
-  const showQuestionNumber = (index, questionsLength) => {
-    return `${index} / ${questionsLength}`;
-  };
-
-  // quiz.questions.map(quest => console.log(quest[4].name));
-
   if (data.length === 0) {
     return <Spinner />;
   }
 
   const showQuestion = (inputtedQuestion) => {
-    if (questionIndex + 1 > questions[0].length) {
-      setQuestionIndex(questions[0].length - 1);
-      return "It was last";
-    }
-
     console.log("Inputted question: ", inputtedQuestion);
-    let questionText = inputtedQuestion.name;
+    let questionText = inputtedQuestion.content;
     let tabooWords = inputtedQuestion.qTaboo;
 
     return (
-      <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
         <div className="flex">
-          <div className="p-4 rounded-lg shadow-md bg-white mb-8 w-72 text-center mt-14 mr-14">
+          <div className="p-4 rounded-lg shadow-md bg-white mb-8 w-72 text-center mt-24 mr-14">
             <h1 className="text-2xl font-bold">{teamName}</h1>
             <p className="mt-2 text-gray-600 font-medium">
               Pas hakkınız : {3 - passCounter} Score :{" "}
               {teamName === team1Name ? score1 : score2}
             </p>
           </div>
-          <div className="p-4 rounded-lg shadow-md bg-white mb-8 w-72 text-center mt-14">
+          <div className="p-4 rounded-lg shadow-md bg-white mb-8 w-72 text-center mt-24">
             <h1 className="text-2xl font-bold">Remaining</h1>
             <span className="mt-2 text-gray-600"> {time}</span>
           </div>
@@ -148,31 +144,36 @@ const Trial = () => {
             ))}
           </ul>
 
-          <div className="mt-3">
-            {showQuestionNumber(quiz.qIndex + 1, questions[0].length)}
+          <div className="mt-3 flex justify-end">
+            <div className="text-white px-2 py-1 rounded-md bg-stone-700">
+              {quiz.qIndex + 1} / {questions[0].length}
+            </div>
           </div>
         </div>
         <div className="flex space-x-4">
           <button
             onClick={correctBtn}
             className="px-4 py-2 w-24 bg-green-500 text-white rounded"
+            disabled={disableButton}
           >
             Correct
           </button>
           <button
             onClick={passBtn}
             className="px-4 py-2 w-24 bg-yellow-500 text-white rounded"
+            disabled={disableButton && disablePasButton}
           >
             Pas
           </button>
           <button
             onClick={failBtn}
             className="px-4 py-2 w-24 bg-red-500 text-white rounded"
+            disabled={disableButton}
           >
             Taboo!
           </button>
         </div>
-        <div className="flex space-x-16 mt-8 text-center">
+        <div className="flex space-x-16 mt-8 mb-3 text-center">
           <div className="team-score">
             <p>{team1Name}</p>
             <p className="text-xl font-bold">Total Score: {score1}</p>
@@ -187,8 +188,16 @@ const Trial = () => {
   };
 
   const correctBtn = () => {
-    if (score1 < questions[0].length && score2 < questions[0].length) {
+    if (
+      score1 < questions[0].length ||
+      score2 < questions[0].length ||
+      questionIndex != questions[0].length
+    ) {
       teamName === team1Name ? setScore1(score1 + 1) : setScore2(score2 + 1);
+      if (questionIndex + 1 >= questions[0].length) {
+        setQuestionIndex(questions[0].length);
+        console.log("Hihiii");
+      }
       setQuestionIndex(questionIndex + 1);
     }
   };
@@ -203,15 +212,21 @@ const Trial = () => {
   };
 
   const failBtn = () => {
-    if (score1 < questions[0].length && score2 < questions[0].length) {
+    if (
+      score1 < questions[0].length ||
+      score2 < questions[0].length ||
+      questionIndex + 1 != questions[0].length
+    ) {
       teamName === team1Name ? setScore1(score1 - 1) : setScore2(score2 - 1);
       setQuestionIndex(questionIndex + 1);
     }
   };
 
-  const handleButtonClick = () => {
+  const changeTeamButton = () => {
     setBlur(false);
-    setTime(60);
+    setTime(10);
+    // setDisableButton(false);
+    setQuestionIndex(0);
     if (teamName === team1Name) {
       setTeamName(`${team2Name}`);
       setPassCounter(0);
@@ -219,11 +234,32 @@ const Trial = () => {
       setTeamName(`${team1Name}`);
     }
   };
+
+  const replayTabooButton = () => {
+    setBlur(false);
+    setQuestionIndex(0);
+    setTime(60);
+    setTeamName(`${team1Name}`);
+    setPassCounter(0);
+    setScore1(0);
+    setScore2(0);
+  };
+
+  const finishTabooButton = () => {
+    setBlur(false);
+    setTime(60);
+    setQuestionIndex(0);
+    setTeamName(`${team1Name}`);
+    navigate('/');
+  };
   return (
     <>
       <Nav />
-      {blur ? <BlurBackground onClick={handleButtonClick} /> : ""}
-      <div>{showQuestion(quiz.askQuestion())}</div>
+      {!(questionIndex + 1 > questions[0].length) ? (
+        showQuestion(quiz.askQuestion())
+      ) : (
+        <BlurFinish team1Name={team1Name} team2Name={team2Name} score1={score1} score2={score2} changeTeam={changeTeamButton} finish={finishTabooButton} replay={replayTabooButton} />
+      )}
     </>
   );
 };
