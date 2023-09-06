@@ -22,7 +22,7 @@ const TabooCart = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchURI = "http://localhost:5173/data.json";
+    const fetchURI = "http://localhost:5173/assets/data.json";
 
     const fetchData = async () => {
       try {
