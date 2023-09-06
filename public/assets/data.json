@@ -1,14 +1,12 @@
 [
     {
         "id": 1,
-        "qName": "Question 1",
+        "qName": "Q 1",
         "qContent": "Fatih Terim",
         "qTaboo": [
             "İmparator",
             "Kebapçı Selo",
-            "Mimikler",
             "Galatasaray Efsanesi",
-            "Baba",
             "Helikopter Jübile",
             "Milan",
             "Teknik direktör"
@@ -16,13 +14,16 @@
     },
     {
         "id": 2,
-        "qName": "Question 2",
-        "qContent": "Question text content description",
+        "qName": "Q 2",
+        "qContent": "Baran Sivi Tekin",
         "qTaboo": [
-            "taboo word1",
-            "taboo word2",
-            "taboo word3",
-            "taboo word4"
+            "1863 Boğaziçi SK",
+            "Süper Yedek",
+            "Kürt Nunez",
+            "Cat in the Box",
+            "Shot Fake",
+            "Yatırmak",
+            "Boğa Press"
         ]
     },
     {
