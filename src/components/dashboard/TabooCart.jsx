@@ -5,6 +5,7 @@ import "./Blur.css";
 import { useNavigate } from "react-router-dom";
 import BlurFinish from "./BlurFinish";
 import toast, { Toaster } from "react-hot-toast";
+import { GiSandsOfTime } from "react-icons/gi";
 
 const TabooCart = () => {
   const [data, setData] = useState([]);
@@ -115,8 +116,10 @@ const TabooCart = () => {
             </p>
           </div>
           <div className="p-4 rounded-lg shadow-md bg-white mb-4 md:mb-8 w-full md:w-72 text-center mt-4 md:mt-24">
-            <h1 className="text-2xl font-bold">Remaining</h1>
-            <span className="mt-2 text-gray-600"> {time}</span>
+            <h1 className="text-2xl font-bold flex justify-center my-2">
+              Time <GiSandsOfTime className="mt-1 ml-1" />
+            </h1>
+            <span className="mt-2 text-gray-900 text-lg"> {time}</span>
           </div>
         </div>
         <div className="p-4 rounded-lg shadow-md bg-white mb-4 w-full md:w-[40%] text-center">
@@ -239,6 +242,20 @@ const TabooCart = () => {
   return (
     <>
       <Nav />
+      {/* {!(questionIndex + 1 > questions[0].length) || blur ? (
+        showQuestion(quiz.askQuestion())
+      ) : (
+        <BlurFinish
+          team1Name={team1Name}
+          team2Name={team2Name}
+          score1={score1}
+          score2={score2}
+          changeTeam={changeTeamButton}
+          finish={finishTabooButton}
+          replay={replayTabooButton}
+        />
+      )} */}
+
       {!(questionIndex + 1 > questions[0].length) || blur ? (
         showQuestion(quiz.askQuestion())
       ) : (
@@ -252,6 +269,7 @@ const TabooCart = () => {
           replay={replayTabooButton}
         />
       )}
+
       <Toaster />
     </>
   );

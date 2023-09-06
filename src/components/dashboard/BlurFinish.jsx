@@ -1,6 +1,7 @@
 import { BsSkipEndCircle } from "react-icons/bs";
 import { FaReplyAll } from "react-icons/fa6";
 import { FaRegCircleXmark } from "react-icons/fa6";
+import "./Blur.css";
 
 const BlurFinish = ({
   finish,

@@ -66,7 +66,7 @@ const RegTeam = () => {
             placeholder="Team 2"
             value={formData.team2}
           />
-          <button className="btn-indigo w-full py-2">Start Taboo</button>
+          <button className="btn-indigo color1 w-full py-2">Start Taboo</button>
         </form>
       </div>
     </>
