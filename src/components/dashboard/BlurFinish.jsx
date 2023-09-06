@@ -14,7 +14,7 @@ const BlurFinish = ({
 }) => {
   return (
     <div className="blur-background">
-      <div className="blur-content">
+      <div className="blur-content sm:container">
         <div className="w-full flex justify-center mt-36">
           <div className="bg-red-900 w-60 h-20 text-center flex flex-col justify-center rounded-lg rounded-r-none">
             <span className="font-medium mr-10 text-lg text-gray-200">
