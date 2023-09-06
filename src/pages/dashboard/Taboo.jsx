@@ -15,13 +15,13 @@ const Taboo = () => {
 
       {!start ? (
         <>
-          <div className="w-full flex justify-center mt-36">
+          <div className="w-full flex justify-center max-sm:flex-col max-sm:items-center mt-36">
             <div className="color1 w-60  h-20 text-center flex flex-col justify-center rounded-lg rounded-r-none">
               <span className="font-medium mr-10 text-lg text-gray-200">
                 {team1Name}
               </span>
             </div>
-            <div className="color2 w-60 text-center flex flex-col justify-center rounded-lg rounded-l-none">
+            <div className="color2 w-60 h-20 text-center flex flex-col justify-center rounded-lg rounded-l-none">
               <span className="font-medium text-lg text-gray-200">
                 {team2Name}
               </span>

@@ -107,7 +107,7 @@ const TabooCart = () => {
 
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-        <div className="flex flex-col md:flex-row">
+        <div className="flex flex-col md:flex-row max-sm:mt-15">
           <div className="p-4 rounded-lg shadow-md bg-white mb-4 md:mb-8 w-full md:w-72 text-center mt-4 md:mt-24 md:mr-14">
             <h1 className="text-2xl font-bold">{teamName}</h1>
             <p className="mt-2 text-gray-600 font-medium">

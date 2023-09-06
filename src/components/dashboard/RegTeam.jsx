@@ -43,7 +43,7 @@ const RegTeam = () => {
   return (
     <>
       <Nav />
-      <div className="p-20 w-full flex justify-center mt-20 sm:container">
+      <div className="p-20 w-full flex justify-center mt-20">
         <form
           onSubmit={onSubmit}
           className="flex flex-col justify-center items-center w-10/12 sm:w-8/12 md:w-6/12 lg:w-4/12"
